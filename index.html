@@ -1,3 +1,207 @@
-<!doctype html><meta charset="utf-8"><title>It works</title>
-<h1>It works 🎉</h1>
-<p>Hello from GitHub Pages.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhammad Nurrijal — Data Analyst Portfolio</title>
+  <meta name="description" content="Data Analyst portfolio: e‑commerce & logistics analytics, Tableau dashboards, Python, SQL projects, and case studies."/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020; --fg:#e9edf6; --muted:#a8b3cf; --brand:#63b3ed; --card:#121a33; --accent:#b794f4;
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.25)
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:var(--shadow)}
+    nav a{margin-left:18px;font-weight:600;color:var(--fg);opacity:.85}
+    nav a.active{color:var(--brand)}
+
+    .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center;padding:40px 0}
+    .hero h1{font-size:44px;line-height:1.1;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 20px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#061125;border:0;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:var(--shadow)}
+    .btn.secondary{background:transparent;color:var(--fg);border:1px solid #2a375f}
+
+    .badgebar{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .badge{font-size:12px;padding:6px 10px;background:#0f1833;border:1px solid #1d2a52;border-radius:999px;color:var(--muted)}
+
+    .section{padding:28px 0}
+    .section h2{font-size:28px;margin:0 0 16px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid #1b2546;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .pill{display:inline-block;font-size:12px;margin-top:10px;padding:6px 10px;border-radius:999px;background:#0e162f;border:1px solid #1e2a52;color:#a9b4d1}
+    .card .links{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
+
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .list{display:grid;gap:10px}
+    .list li{background:var(--card);border:1px solid #1b2546;border-radius:12px;padding:12px;list-style:none}
+
+    footer{margin-top:32px;border-top:1px solid #1b2546;padding:18px 0;color:var(--muted);font-size:14px}
+    .social{display:flex;gap:12px;align-items:center}
+
+    /* Responsive */
+    @media (max-width: 960px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
+    @media (max-width: 640px){.grid{grid-template-columns:1fr}.hero h1{font-size:36px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand"><div class="logo"></div><strong>M. Nurrijal</strong></div>
+      <nav>
+        <a href="#projects" class="active">Projects</a>
+        <a href="#dashboards">Dashboards</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Data Analyst focusing on e‑commerce & logistics</h1>
+        <p>I turn messy data into decisions. Python • SQL • Tableau. My recent work targets <strong>late shipment reduction</strong>, <strong>profit lift</strong>, and <strong>customer behavior</strong>.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="mailto:hello@example.com">Email Me</a>
+        </div>
+        <div class="badgebar">
+          <span class="badge">Tableau</span>
+          <span class="badge">Python (pandas, matplotlib)</span>
+          <span class="badge">SQL (BigQuery)</span>
+          <span class="badge">OBIPR • MECE • KPI design</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Quick Stats</h3>
+        <p>Projects: <strong>12</strong> • Dashboards: <strong>6</strong> • Datasets: <strong>e‑commerce, finance</strong></p>
+        <ul class="list" style="margin-top:12px">
+          <li>Reduced late shipments by simulated <strong>−18%</strong> via shipping‑mode optimization</li>
+          <li>Built retention cohorts & LOD insights for top merchants</li>
+          <li>Designed KPI suite: On‑time %, Avg. Delay, Profit per Order</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Highlighted Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Late Shipment Reduction (E‑commerce Logistics)</h3>
+          <p>EDA + hypothesis tests to cut late shipments by 15% using shipping mode, region, and delivery metrics.</p>
+          <span class="pill">Python • SQL • Tableau</span>
+          <div class="links">
+            <a href="#">Case Study</a>
+            <a href="#">GitHub Repo</a>
+            <a href="#">Tableau Dashboard</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>RevoFinance Spend Insights</h3>
+          <p>Monthly spend trends, overspending categories, and top‑merchant analysis with dynamic top‑N filters.</p>
+          <span class="pill">Tableau • LOD • Parameters</span>
+          <div class="links">
+            <a href="#">Write‑up</a>
+            <a href="#">Dashboard</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Supply Chain KPI Dashboard</h3>
+          <p>End‑to‑end pipeline from cleaning to BI dashboard; highlights on‑time delivery and margin per order.</p>
+          <span class="pill">Python • Tableau</span>
+          <div class="links">
+            <a href="#">Repo</a>
+            <a href="#">Live Demo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="dashboards" class="section">
+      <h2>Dashboards</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Datviz RevoFinance</h3>
+          <p>Spending trends, budget utilization, category insights.</p>
+          <a href="#">Open in Tableau Public →</a>
+        </article>
+        <article class="card">
+          <h3>E‑commerce Logistics</h3>
+          <p>On‑time rate, Avg. delay, regional heatmaps, shipping‑mode mix.</p>
+          <a href="#">Open in Tableau Public →</a>
+        </article>
+        <article class="card">
+          <h3>Customer Cohorts</h3>
+          <p>Monthly cohort retention & CLV heuristics.</p>
+          <a href="#">Open in Tableau Public →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section two">
+      <div>
+        <h2>Skills</h2>
+        <ul class="list">
+          <li><strong>Python:</strong> pandas, numpy, matplotlib, data cleaning, feature engineering</li>
+          <li><strong>SQL:</strong> CTEs, window functions, ranking, SAFE_DIVIDE, date handling</li>
+          <li><strong>Tableau:</strong> LOD, table calcs, parameters, bins, dashboard actions</li>
+          <li><strong>Business:</strong> OBIPR, SMART, MECE, KPI design, stakeholder‑ready outputs</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Tech & Tools</h2>
+        <ul class="list">
+          <li>GitHub, Git, Google Colab, BigQuery</li>
+          <li>CSV/Parquet handling, data dictionaries, dtype fixes</li>
+          <li>Project packaging & reproducible notebooks</li>
+          <li>Basic deployment with GitHub Pages</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="section two">
+      <div>
+        <h2>About</h2>
+        <p class="card">Hello! I’m <strong>Muhammad Nurrijal</strong>, a data analyst focused on turning raw e‑commerce and finance data into actionable insights. I enjoy building tidy pipelines, clean visuals, and concise business narratives.</p>
+      </div>
+      <div>
+        <h2>Resume</h2>
+        <div class="card">
+          <p>Short on time? Grab my one‑page resume.</p>
+          <a class="btn" href="#">Download PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:hello@example.com">hello@example.com</a> • LinkedIn: <a href="#">/in/nurrijal</a> • GitHub: <a href="#">@nurrijal</a></p>
+        <p style="color:var(--muted);font-size:14px">Replace placeholders with your real links. You can also add Google Analytics later.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="social">
+        <span>© <span id="y"></span> M. Nurrijal</span>
+        <span>•</span>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Tableau Public</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
