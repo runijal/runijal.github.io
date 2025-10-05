@@ -135,6 +135,52 @@
   margin: 0;
 }
 
+/* Portfolio grid with hover overlay */
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.portfolio-card{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  background:#0e162f;
+  border:1px solid #1b2546;
+  box-shadow:var(--shadow);
+}
+.portfolio-card .thumb{
+  width:100%;
+  aspect-ratio:16/9;      /* forces same tile height */
+  object-fit:cover;
+  display:block;
+  transition:transform .35s ease;
+}
+.portfolio-card .overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:14px;
+  background:linear-gradient(to top,
+    rgba(6,17,37,.9),
+    rgba(6,17,37,.55) 45%,
+    rgba(6,17,37,0));
+  color:#eef3ff;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.portfolio-card h3{ margin:0 0 6px; font-size:18px }
+.portfolio-card p{ margin:0; color:#c8d2ea; font-size:14px }
+.portfolio-card a.fill{ position:absolute; inset:0; text-indent:-9999px }
+.portfolio-card:hover .thumb{ transform:scale(1.05) }
+.portfolio-card:hover .overlay{ opacity:1 }
+.portfolio-card:focus-within .overlay{ opacity:1 } /* keyboard focus */
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 960px){ .portfolio-grid{ grid-template-columns:1fr 1fr } }
+@media (max-width: 640px){ .portfolio-grid{ grid-template-columns:1fr } }
     
     /* Responsive */
     @media (max-width: 960px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
@@ -206,7 +252,7 @@ nav {
   </div>
 </section>
     
-    <section class="hero">
+    <!--<section class="hero">
       <div>
         <h1>Data Analyst focusing on e‑commerce & logistics</h1>
         <p>I turn messy data into decisions. Python • SQL • Tableau. My recent work targets <strong>late shipment reduction</strong>, <strong>profit lift</strong>, and <strong>customer behavior</strong>.</p>
@@ -230,9 +276,75 @@ nav {
           <li>Designed KPI suite: On‑time %, Avg. Delay, Profit per Order</li>
         </ul>
       </div>
-    </section>
+    </section> -->
+<section id="projects" class="section">
+  <h2 style="text-align:center;letter-spacing:.06em">MY PORTFOLIO</h2>
+  <div class="portfolio-grid">
 
-    <section id="projects" class="section">
+    <!-- Card 1 -->
+    <figure class="portfolio-card">
+      <img class="thumb" src="assets/portfolio1.jpg" alt="Human Resource Analysis cover">
+      <figcaption class="overlay">
+        <h3>Human Resource Analysis</h3>
+        <p>Exploratory trends, attrition drivers, and hiring insights.</p>
+      </figcaption>
+      <a class="fill" href="#" aria-label="Open Human Resource Analysis"></a>
+    </figure>
+
+    <!-- Card 2 -->
+    <figure class="portfolio-card">
+      <img class="thumb" src="assets/portfolio2.jpg" alt="Seller Performance Dashboard cover">
+      <figcaption class="overlay">
+        <h3>Seller Performance Dashboard</h3>
+        <p>KPIs for GMV, conversion, and fulfillment quality.</p>
+      </figcaption>
+      <a class="fill" href="#" aria-label="Open Seller Performance Dashboard"></a>
+    </figure>
+
+    <!-- Card 3 -->
+    <figure class="portfolio-card">
+      <img class="thumb" src="assets/portfolio3.jpg" alt="Statistics & Spreadsheets cover">
+      <figcaption class="overlay">
+        <h3>Statistics & Spreadsheets</h3>
+        <p>AB tests & cohort metrics with spreadsheet workflows.</p>
+      </figcaption>
+      <a class="fill" href="#" aria-label="Open Statistics & Spreadsheets"></a>
+    </figure>
+
+    <!-- Card 4 -->
+    <figure class="portfolio-card">
+      <img class="thumb" src="assets/portfolio4.jpg" alt="Pizza Sales Report cover">
+      <figcaption class="overlay">
+        <h3>Pizza Sales Report</h3>
+        <p>SQL + BI: items, seasons, and store-level mix.</p>
+      </figcaption>
+      <a class="fill" href="#" aria-label="Open Pizza Sales Report"></a>
+    </figure>
+
+    <!-- Card 5 -->
+    <figure class="portfolio-card">
+      <img class="thumb" src="assets/portfolio5.jpg" alt="Clustering Seller Profiling cover">
+      <figcaption class="overlay">
+        <h3>Clustering Seller Profiling</h3>
+        <p>K-means segments for onboarding & incentives.</p>
+      </figcaption>
+      <a class="fill" href="#" aria-label="Open Clustering Seller Profiling"></a>
+    </figure>
+
+    <!-- Card 6 -->
+    <figure class="portfolio-card">
+      <img class="thumb" src="assets/portfolio6.jpg" alt="The Look e-Commerce cover">
+      <figcaption class="overlay">
+        <h3>The Look e-Commerce</h3>
+        <p>End-to-end SQL project & executive dashboard.</p>
+      </figcaption>
+      <a class="fill" href="#" aria-label="Open The Look e-Commerce"></a>
+    </figure>
+
+  </div>
+</section>
+
+    <!--<section id="projects" class="section">
       <h2>Highlighted Projects</h2>
       <div class="grid">
         <article class="card">
@@ -264,7 +376,7 @@ nav {
           </div>
         </article>
       </div>
-    </section>
+    </section> -->
 
     <section id="dashboards" class="section">
       <h2>Dashboards</h2>
