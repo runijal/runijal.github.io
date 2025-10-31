@@ -459,7 +459,14 @@ nav {
     .info-sections { display: grid; gap: 12px; margin-top: 8px; }
     .info-block { background: var(--card); border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; }
     .info-block h4 { margin: 0 0 6px; font-size: 14px; letter-spacing: .02em; color: #334155; text-transform: uppercase; }
-    .info-block p { margin: 0; color: var(--muted); line-height: 1.6; }
+    .info-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: justify;
+      text-justify: inter-word; /* makes spacing smoother */
+    }
+
 
     .kv-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
     .kv { font-size:12px; padding:6px 10px; border-radius:999px; background:#edf2f7; border:1px solid #cbd5e0; color:#2d3748; }
