@@ -120,17 +120,17 @@
 }
 
 .icon-card {
-  background: var(--card);
-  border: 1px solid #1b2546;
-  border-radius: var(--radius);
-  padding: 16px;
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: transform .2s ease, box-shadow .2s ease;
-  **width: 100%;** /* Ensures it fills its grid cell's width */
-  **aspect-ratio: 1 / 1;** /* **Crucial:** makes the height equal to the width (a square) */
-}
-
+      background: var(--card);
+      border: 1px solid #1b2546;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform .2s ease, box-shadow .2s ease;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+    
 .icon-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(0,0,0,.4);
@@ -208,7 +208,55 @@ nav {
   display: flex;
   gap: 18px;
 }
+    .modal-backdrop{
+      position: fixed; inset: 0; 
+      background: rgba(0,0,0,.55);
+      display: none; 
+      align-items: center; justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+    .modal-backdrop.open{ display:flex }
 
+    .modal{
+      width: min(900px, 96vw);
+      background: var(--bg);
+      color: var(--fg);
+      border-radius: 16px;
+      border: 1px solid #1b2546;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .modal-head{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 16px; border-bottom: 1px solid #e5e7eb;
+    }
+    .modal-title{ font-size:18px; margin:0 }
+    .modal-close{
+      border:0; background:transparent; font-size:22px; line-height:1; cursor:pointer;
+    }
+
+    .modal-body{
+      display:grid; grid-template-columns: 1.1fr 1.2fr; gap: 16px;
+      padding: 16px;
+    }
+    .modal-body img{
+      width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border:1px solid #e5e7eb;
+      aspect-ratio: 16/10;
+    }
+    .modal-info { max-height: min(70vh, 720px); overflow: auto; padding-right: 4px; }
+    .info-sections { display: grid; gap: 12px; margin-top: 8px; }
+    .info-block { background: var(--card); border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; }
+    .info-block h4 { margin: 0 0 6px; font-size: 14px; letter-spacing: .02em; color: #334155; text-transform: uppercase; }
+    .info-block p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .kv-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .kv { font-size:12px; padding:6px 10px; border-radius:999px; background:#edf2f7; border:1px solid #cbd5e0; color:#2d3748; }
+
+    @media (max-width: 840px){
+      .modal-body{ grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -273,36 +321,60 @@ nav {
   <h2 style="text-align:center;letter-spacing:.06em">Projects Portofolio</h2>
   <div class="portfolio-grid">
 
-    <!-- Card 1 -->
+    <!-- 🟡  Card 1  -->
     <figure class="portfolio-card">
       <img class="thumb" src="assets/img/portofolio/dataco analysis.jpg" alt="DataCo Analysis">
       <figcaption class="overlay">
         <h3>DataCo Global Shipping Analysis</h3>
         <p>Shipping Performance Optimization – DataCo Global.</p>
       </figcaption>
-      <a class="fill" href="https://drive.google.com/file/d/1-4w4dtK6kx8M0d0gvngfy-THegCphysg/view?usp=sharing" target="_blank" aria-label="Open Human Resource Analysis"></a>
+      <a class="fill" href="https://drive.google.com/file/d/1-4w4dtK6kx8M0d0gvngfy-THegCphysg/view?usp=sharing" target="_blank"></a>
+
+      <!-- 🔵 NEW popup details -->
+      <template class="project-details">
+        <div class="bg">Late deliveries and high variability across regions and modes were increasing refund risk and hurting CSAT.</div>
+        <div class="obj">Reduce late shipments by ~15% within 6 months while keeping costs stable.</div>
+        <div class="method">Cleaned & validated shipping logs, profiled delay patterns by region/mode, and built KPIs & cohort views to isolate drivers.</div>
+        <div class="method-tags">Python (pandas), SQL, Tableau, KPI design</div>
+        <div class="results">Identified mode-region combos behind ~62% of delays; recommended reallocation + vendor review, estimating 12–18% late-reduction.</div>
+      </template>
     </figure>
 
-    <!-- Card 2 -->
+    <!-- 🟡  Card 2 -->
     <figure class="portfolio-card">
       <img class="thumb" src="assets/img/portofolio/revo bank analysis.jpg" alt="RevoBank Analysis">
       <figcaption class="overlay">
         <h3>Revo Bank Business Performance & Segmentation</h3>
         <p>Analysis using Python.</p>
       </figcaption>
-      <a class="fill" href="https://drive.google.com/file/d/13MAr7e2k_Luq7IHyUcGgq-Brc2U25neZ/view?usp=sharing" target="_blank" aria-label="Open Seller Performance Dashboard"></a>
+      <a class="fill" href="https://drive.google.com/file/d/13MAr7e2k_Luq7IHyUcGgq-Brc2U25neZ/view?usp=sharing" target="_blank"></a>
+      
+      <template class="project-details">
+        <div class="bg">Mixed growth with uneven customer profitability and churn signals across segments.</div>
+        <div class="obj">Find profitable segments and drivers to improve retention and cross-sell.</div>
+        <div class="method">RFM segmentation, cohort retention, and CLV proxies to compare segment value and decay patterns.</div>
+        <div class="method-tags">Python, pandas, matplotlib, Segmentation</div>
+        <div class="results">Surfaced 2 high-value clusters with higher cross-sell lift; targeting yields projected +7–10% ARPU.</div>
+      </template>
     </figure>
 
-
-    <!-- Card 3 -->
+    <!-- 🟡 Modified Card 3 -->
     <figure class="portfolio-card">
       <img class="thumb" src="assets/img/portofolio/revo grocers analysis.jpg" alt="RevoGrocers Analysis">
       <figcaption class="overlay">
         <h3>Revo Grocers Sales Insights</h3>
         <p>Analysis using SQL</p>
       </figcaption>
-      <a class="fill" href="https://drive.google.com/file/d/1o_716llC9pKm-wPhJ8x3ksmiLz8neKQC/view?usp=sharing" target="_blank" aria-label="Open Statistics & Spreadsheets"></a>
-    </figure> 
+      <a class="fill" href="https://drive.google.com/file/d/1o_716llC9pKm-wPhJ8x3ksmiLz8neKQC/view?usp=sharing" target="_blank"></a>
+      
+      <template class="project-details">
+        <div class="bg">Inconsistent monthly growth and margin leakage across categories and top merchants.</div>
+        <div class="obj">Pinpoint overspending/low-margin categories and optimize merchant mix.</div>
+        <div class="method">SQL pipelines for monthly trends, top-N merchants with dynamic filtering, margin & discount analysis.</div>
+        <div class="method-tags">SQL, Window functions, Tableau</div>
+        <div class="results">Cut discount overuse by focusing on 3 categories; rebalancing merchants improved blended margin by ~3.1 pts.</div>
+      </template>
+    </figure>
 
   </div>
 </section>
@@ -321,7 +393,134 @@ nav {
       </div>
     </footer>
   </div>
+<div class="modal-backdrop" id="project-modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+    <div class="modal-head">
+      <h3 class="modal-title" id="project-modal-title">Project Title</h3>
+      <button class="modal-close" type="button" aria-label="Close modal">&times;</button>
+    </div>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+    <div class="modal-body">
+      <img id="project-modal-img" src="" alt="">
+      <div class="modal-info">
+        <p id="project-modal-desc" style="margin-top:0"></p>
+
+        <div class="info-sections">
+          <div class="info-block"><h4>Background</h4><p id="pm-bg"></p></div>
+          <div class="info-block"><h4>Objective</h4><p id="pm-obj"></p></div>
+          <div class="info-block"><h4>Methodology</h4><p id="pm-method"></p><div class="kv-row" id="pm-method-tags" hidden></div></div>
+          <div class="info-block"><h4>Results</h4><p id="pm-results"></p></div>
+        </div>
+
+        <div class="modal-actions">
+          <a id="project-modal-view" href="#" target="_blank" rel="noopener noreferrer" class="btn primary">View full project</a>
+          <button class="btn" type="button" id="project-modal-close2">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear()
+</script>
+
+<!-- 🔵 NEW popup JS -->
+<script>
+(function(){
+  const cards   = document.querySelectorAll('.portfolio-card');
+  const modal   = document.getElementById('project-modal');
+  const titleEl = document.getElementById('project-modal-title');
+  const descEl  = document.getElementById('project-modal-desc');
+  const imgEl   = document.getElementById('project-modal-img');
+  const viewBtn = document.getElementById('project-modal-view');
+  const closeBtn = modal.querySelector('.modal-close');
+  const closeBtn2 = document.getElementById('project-modal-close2');
+
+  const elBG = document.getElementById('pm-bg');
+  const elOBJ = document.getElementById('pm-obj');
+  const elMETHOD = document.getElementById('pm-method');
+  const elMETHODTAGS = document.getElementById('pm-method-tags');
+  const elRESULT = document.getElementById('pm-results');
+
+  let lastFocus = null;
+
+  function openModal(data){
+    titleEl.textContent = data.title || 'Project';
+    descEl.textContent  = data.desc  || '';
+    imgEl.src = data.img || '';
+    imgEl.alt = data.title || 'Project image';
+    viewBtn.href = data.link || '#';
+
+    elBG.textContent     = data.bg || '';
+    elOBJ.textContent    = data.obj || '';
+    elMETHOD.textContent = data.method || '';
+    elRESULT.textContent = data.results || '';
+
+    if (Array.isArray(data.methodTags) && data.methodTags.length){
+      elMETHODTAGS.innerHTML = data.methodTags.map(t => `<span class="kv">${t}</span>`).join('');
+      elMETHODTAGS.hidden = false;
+    } else {
+      elMETHODTAGS.hidden = true;
+      elMETHODTAGS.innerHTML = '';
+    }
+
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  cards.forEach(card=>{
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+
+    function buildDataFromCard(){
+      const title = card.querySelector('h3')?.textContent?.trim();
+      const desc  = card.querySelector('figcaption p')?.textContent?.trim();
+      const img   = card.querySelector('img.thumb')?.getAttribute('src');
+      const link  = card.querySelector('a.fill')?.getAttribute('href');
+
+      const tmpl = card.querySelector('template.project-details');
+      const data = { title, desc, img, link };
+
+      if (tmpl && tmpl.content){
+        const get = cls => tmpl.content.querySelector(cls)?.textContent.trim() || '';
+        data.bg      = get('.bg');
+        data.obj     = get('.obj');
+        data.method  = get('.method');
+        data.results = get('.results');
+        const tagsTxt = tmpl.content.querySelector('.method-tags')?.textContent || '';
+        data.methodTags = tagsTxt.split(',').map(s=>s.trim()).filter(Boolean);
+      }
+      return data;
+    }
+
+    card.addEventListener('click', e=>{
+      const fill = card.querySelector('a.fill');
+      if (fill && (e.target===fill || fill.contains(e.target))) e.preventDefault();
+      openModal(buildDataFromCard());
+    });
+
+    card.addEventListener('keydown', e=>{
+      if (e.key==='Enter'||e.key===' '){ e.preventDefault(); card.click(); }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  closeBtn2.addEventListener('click', closeModal);
+  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+})();
+</script>
+  
 </body>
 </html>
