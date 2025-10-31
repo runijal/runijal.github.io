@@ -153,6 +153,134 @@
   margin: 0;
 }
 
+/* ===== Resume Section (Education & Work Experience) ===== */
+
+.resume-section {
+  padding: 28px 0;
+}
+
+.resume-section h2 {
+  font-size: 28px;
+  margin: 0 0 16px;
+}
+
+/* Each block card for education / work */
+.resume-card {
+  background: var(--card);
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+/* Section headers like 'Education', 'Working Experiences' */
+.resume-block-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #000;
+  padding-bottom: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  color: var(--fg);
+}
+.resume-block-title span.dates {
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Entry rows: school / job */
+.resume-entry {
+  margin-bottom: 20px;
+}
+
+.resume-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+.resume-entry-left {
+  max-width: calc(100% - 140px); /* leaves room for the date on desktop */
+}
+
+.resume-entry-role {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--fg);
+  margin: 0;
+}
+
+.resume-entry-subrole {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--fg);
+  margin: 4px 0 0;
+}
+
+.resume-entry-detail {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--fg);
+  margin: 6px 0 0;
+}
+
+.resume-entry-date {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--fg);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* body text under each job (company description + bullets) */
+.company-intro {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg);
+  margin: 12px 0 8px;
+}
+
+.resume-bullets {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.resume-bullets li {
+  margin-bottom: 8px;
+}
+
+/* spacing tweak for last entry in a block */
+.resume-entry:last-child {
+  margin-bottom: 0;
+}
+
+/* responsive: stack date below title on narrow screens */
+@media (max-width:640px){
+  .resume-entry-header {
+    flex-direction: column;
+  }
+  .resume-entry-left {
+    max-width: 100%;
+  }
+  .resume-entry-date {
+    margin-top: 4px;
+  }
+}
+
+    
 /* Portfolio grid with hover overlay */
 .portfolio-grid{
   display:grid;
@@ -325,6 +453,93 @@ nav {
     </div>
   </div>
 </section>
+
+<section id="experience" class="resume-section">
+  <!-- ===== Education Card ===== -->
+  <div class="resume-card">
+    <div class="resume-block-title">
+      <span>Education</span>
+      <!-- no right-side date line here in the screenshot, so we leave it empty -->
+      <span class="dates"></span>
+    </div>
+
+    <!-- Universitas Gadjah Mada -->
+    <div class="resume-entry">
+      <div class="resume-entry-header">
+        <div class="resume-entry-left">
+          <p class="resume-entry-role">Universitas Gadjah Mada</p>
+          <p class="resume-entry-detail">
+            Agroindustrial Technology Bachelor’s Degree (GPA: 3.52)<br/>
+            Thesis: <em>Work System Design for Batik Wax-Stamping at Batik Plentong Yogyakarta</em>
+          </p>
+        </div>
+        <div class="resume-entry-date">Sep, 2013 – Jan, 2019</div>
+      </div>
+    </div>
+
+    <!-- RevoU -->
+    <div class="resume-entry">
+      <div class="resume-entry-header">
+        <div class="resume-entry-left">
+          <p class="resume-entry-role">RevoU</p>
+          <p class="resume-entry-subrole">Full-stack Data Analytics</p>
+          <p class="resume-entry-detail">
+            Learned to apply data cleaning, analysis, and visualization to transform business problems into actionable insights.
+          </p>
+        </div>
+        <div class="resume-entry-date">Jun, 2025 – Sep, 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Work Experience Card ===== -->
+  <div class="resume-card">
+    <div class="resume-block-title">
+      <span>Working Experiences</span>
+      <span class="dates"></span>
+    </div>
+
+    <!-- Niagahoster -->
+    <div class="resume-entry">
+      <div class="resume-entry-header">
+        <div class="resume-entry-left">
+          <p class="resume-entry-role">Customer Success Specialist, Niagahoster</p>
+        </div>
+        <div class="resume-entry-date">Aug, 2022 – May, 2023</div>
+      </div>
+
+      <p class="company-intro">
+        Niagahoster is an Indonesian web hosting company providing hosting, domain, and cloud services with strong uptime guarantees and a focus on customer support.
+      </p>
+
+      <ul class="resume-bullets">
+        <li>Developed an in-depth understanding of hosting products, SLAs, and client needs through continuous product training and case-based learning, enabling faster troubleshooting and a 15% reduction in resolution time.</li>
+        <li>Resolved an average of 8 client support cases per hour using structured issue prioritization and root-cause analysis (surpassing the 5-case KPI by 60%), resulting in higher service reliability and operational efficiency.</li>
+        <li>Maintained an average customer satisfaction score above 4.5 out of 5 in post-service surveys by applying empathetic communication and proactive follow-ups, reinforcing brand reputation and repeat engagement.</li>
+        <li>Developed standardized and personalized response templates by analyzing common support scenarios and implementing reusable formats, reducing average response time by 15% and enabling faster issue resolution without lowering satisfaction.</li>
+        <li>Troubleshoot technical hosting and website issues beyond core scope through root-cause analysis and cross-system testing, cutting repeat complaints by 10% and increasing customer loyalty.</li>
+      </ul>
+    </div>
+
+    <!-- Yakult -->
+    <div class="resume-entry">
+      <div class="resume-entry-header">
+        <div class="resume-entry-left">
+          <p class="resume-entry-role">Sales Assistant Intern, PT. Yakult Indonesia Persada</p>
+        </div>
+        <div class="resume-entry-date">Mar, 2021 – Apr, 2021</div>
+      </div>
+
+      <ul class="resume-bullets">
+        <li>Supported daily sales operations by coordinating task assignments and monitoring progress through structured tracking methods, achieving 100% on-time completion and reducing administrative backlog for sales officers.</li>
+        <li>Conducted field analysis and data mapping by identifying 5+ new potential distribution routes, effectively expanding delivery coverage and enhancing market reach across targeted areas.</li>
+        <li>Delivered hands-on training sessions for Yakult Lady staff by following company procedures and sales protocols, increasing SOP compliance over 90% and improving the consistency of sales execution across branches.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
     
 <section id="portofolio" class="section">
   <h2 style="text-align:center;letter-spacing:.06em">Projects Portofolio</h2>
