@@ -153,132 +153,176 @@
   margin: 0;
 }
 
-/* ===== Resume Section (Education & Work Experience) ===== */
+/* ===== Sleek Experience Section ===== */
 
-.resume-section {
-  padding: 28px 0;
+.experience-section {
+  padding: 40px 0;
 }
 
-.resume-section h2 {
-  font-size: 28px;
-  margin: 0 0 16px;
-}
-
-/* Each block card for education / work */
-.resume-card {
-  background: var(--card);
-  border: 1px solid #ddd;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px;
+.experience-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
   margin-bottom: 24px;
 }
 
-/* Section headers like 'Education', 'Working Experiences' */
-.resume-block-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-bottom: 1px solid #000;
-  padding-bottom: 6px;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.4;
-  margin-bottom: 16px;
+.experience-header h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0;
   color: var(--fg);
+  letter-spacing: -.02em;
+  font-weight: 600;
 }
-.resume-block-title span.dates {
-  font-weight: normal;
+
+.experience-subtext {
   font-size: 14px;
   color: var(--muted);
-  white-space: nowrap;
+  line-height: 1.4;
 }
 
-/* Entry rows: school / job */
-.resume-entry {
-  margin-bottom: 20px;
+/* Grid: Education left, Work right on desktop; stacked on mobile */
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+@media (max-width: 860px){
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.resume-entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  row-gap: 4px;
-}
-
-.resume-entry-left {
-  max-width: calc(100% - 140px); /* leaves room for the date on desktop */
-}
-
-.resume-entry-role {
-  font-weight: 600;
+/* Section block (Education / Work) */
+.exp-block h3 {
   font-size: 16px;
-  line-height: 1.4;
+  font-weight: 600;
   color: var(--fg);
-  margin: 0;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -.02em;
 }
 
-.resume-entry-subrole {
-  font-style: italic;
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--fg);
-  margin: 4px 0 0;
+.exp-block h3 span.badge-section {
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 8px;
+  line-height: 1.2;
 }
 
-.resume-entry-detail {
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--fg);
-  margin: 6px 0 0;
+/* Individual card for school / job */
+.exp-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  border: 1px solid #1b2546;
+  box-shadow: var(--shadow);
+  padding: 16px 16px 16px 20px;
+  position: relative;
+  margin-bottom: 16px;
 }
 
-.resume-entry-date {
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--fg);
-  font-weight: 500;
-  white-space: nowrap;
+/* Accent bar on the left of each card */
+.exp-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg,var(--brand) 0%,var(--accent) 100%);
+  box-shadow: 0 8px 20px rgba(0,0,0,.2);
 }
 
-/* body text under each job (company description + bullets) */
-.company-intro {
-  font-style: italic;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--fg);
-  margin: 12px 0 8px;
-}
-
-.resume-bullets {
-  margin: 0;
-  padding-left: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--fg);
-}
-.resume-bullets li {
+/* Top row (title + date chip) */
+.exp-headline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  row-gap: 6px;
   margin-bottom: 8px;
 }
 
-/* spacing tweak for last entry in a block */
-.resume-entry:last-child {
-  margin-bottom: 0;
+.exp-role {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: -.02em;
 }
 
-/* responsive: stack date below title on narrow screens */
-@media (max-width:640px){
-  .resume-entry-header {
-    flex-direction: column;
+.exp-org {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 2px 0 0;
+}
+
+.exp-date-chip {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #2d3748;
+  background: #edf2f7;
+  border: 1px solid #cbd5e0;
+  border-radius: 999px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* Description / bullets */
+.exp-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg);
+  margin: 0 0 10px;
+  font-style: italic;
+}
+
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.exp-bullets li {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.exp-bullets li .dot {
+  font-size: 16px;
+  line-height: 1;
+  color: var(--brand);
+  font-weight: 700;
+  margin-top: -1px;
+}
+
+@media (max-width:480px){
+  .exp-date-chip {
+    font-size: 11px;
   }
-  .resume-entry-left {
-    max-width: 100%;
+  .exp-role {
+    font-size: 14px;
   }
-  .resume-entry-date {
-    margin-top: 4px;
+  .exp-org {
+    font-size: 13px;
   }
 }
+
 
     
 /* Portfolio grid with hover overlay */
@@ -454,90 +498,124 @@ nav {
   </div>
 </section>
 
-<section id="experience" class="resume-section">
-  <!-- ===== Education Card ===== -->
-  <div class="resume-card">
-    <div class="resume-block-title">
-      <span>Education</span>
-      <!-- no right-side date line here in the screenshot, so we leave it empty -->
-      <span class="dates"></span>
-    </div>
-
-    <!-- Universitas Gadjah Mada -->
-    <div class="resume-entry">
-      <div class="resume-entry-header">
-        <div class="resume-entry-left">
-          <p class="resume-entry-role">Universitas Gadjah Mada</p>
-          <p class="resume-entry-detail">
-            Agroindustrial Technology Bachelor’s Degree (GPA: 3.52)<br/>
-            Thesis: <em>Work System Design for Batik Wax-Stamping at Batik Plentong Yogyakarta</em>
-          </p>
-        </div>
-        <div class="resume-entry-date">Sep, 2013 – Jan, 2019</div>
-      </div>
-    </div>
-
-    <!-- RevoU -->
-    <div class="resume-entry">
-      <div class="resume-entry-header">
-        <div class="resume-entry-left">
-          <p class="resume-entry-role">RevoU</p>
-          <p class="resume-entry-subrole">Full-stack Data Analytics</p>
-          <p class="resume-entry-detail">
-            Learned to apply data cleaning, analysis, and visualization to transform business problems into actionable insights.
-          </p>
-        </div>
-        <div class="resume-entry-date">Jun, 2025 – Sep, 2025</div>
-      </div>
+<section id="experience" class="experience-section">
+  <div class="experience-header">
+    <h2>Experience</h2>
+    <div class="experience-subtext">
+      Education, hands-on analytics training, and professional impact.
     </div>
   </div>
 
-  <!-- ===== Work Experience Card ===== -->
-  <div class="resume-card">
-    <div class="resume-block-title">
-      <span>Working Experiences</span>
-      <span class="dates"></span>
-    </div>
+  <div class="experience-grid">
 
-    <!-- Niagahoster -->
-    <div class="resume-entry">
-      <div class="resume-entry-header">
-        <div class="resume-entry-left">
-          <p class="resume-entry-role">Customer Success Specialist, Niagahoster</p>
+    <!-- ========== LEFT COLUMN: EDUCATION ========== -->
+    <div class="exp-block">
+      <h3>
+        Education
+        <span class="badge-section">Core foundations</span>
+      </h3>
+
+      <!-- Card: Universitas Gadjah Mada -->
+      <div class="exp-card">
+        <div class="exp-headline">
+          <div>
+            <p class="exp-role">Agroindustrial Technology, Bachelor's Degree (GPA 3.52)</p>
+            <p class="exp-org">Universitas Gadjah Mada</p>
+          </div>
+          <div class="exp-date-chip">Sep 2013 – Jan 2019</div>
         </div>
-        <div class="resume-entry-date">Aug, 2022 – May, 2023</div>
+
+        <p class="exp-desc">
+          Thesis: “Work System Design for Batik Wax-Stamping at Batik Plentong Yogyakarta”.
+        </p>
       </div>
 
-      <p class="company-intro">
-        Niagahoster is an Indonesian web hosting company providing hosting, domain, and cloud services with strong uptime guarantees and a focus on customer support.
-      </p>
+      <!-- Card: RevoU -->
+      <div class="exp-card">
+        <div class="exp-headline">
+          <div>
+            <p class="exp-role">Full-stack Data Analytics Program</p>
+            <p class="exp-org">RevoU</p>
+          </div>
+          <div class="exp-date-chip">Jun 2025 – Sep 2025</div>
+        </div>
 
-      <ul class="resume-bullets">
-        <li>Developed an in-depth understanding of hosting products, SLAs, and client needs through continuous product training and case-based learning, enabling faster troubleshooting and a 15% reduction in resolution time.</li>
-        <li>Resolved an average of 8 client support cases per hour using structured issue prioritization and root-cause analysis (surpassing the 5-case KPI by 60%), resulting in higher service reliability and operational efficiency.</li>
-        <li>Maintained an average customer satisfaction score above 4.5 out of 5 in post-service surveys by applying empathetic communication and proactive follow-ups, reinforcing brand reputation and repeat engagement.</li>
-        <li>Developed standardized and personalized response templates by analyzing common support scenarios and implementing reusable formats, reducing average response time by 15% and enabling faster issue resolution without lowering satisfaction.</li>
-        <li>Troubleshoot technical hosting and website issues beyond core scope through root-cause analysis and cross-system testing, cutting repeat complaints by 10% and increasing customer loyalty.</li>
-      </ul>
+        <p class="exp-desc">
+          Applied data cleaning, analysis, visualization, and storytelling to turn business problems into actionable insights.
+        </p>
+      </div>
     </div>
 
-    <!-- Yakult -->
-    <div class="resume-entry">
-      <div class="resume-entry-header">
-        <div class="resume-entry-left">
-          <p class="resume-entry-role">Sales Assistant Intern, PT. Yakult Indonesia Persada</p>
+    <!-- ========== RIGHT COLUMN: WORK EXPERIENCE ========== -->
+    <div class="exp-block">
+      <h3>
+        Work Experience
+        <span class="badge-section">Impact & delivery</span>
+      </h3>
+
+      <!-- Job: Niagahoster -->
+      <div class="exp-card">
+        <div class="exp-headline">
+          <div>
+            <p class="exp-role">Customer Success Specialist</p>
+            <p class="exp-org">Niagahoster</p>
+          </div>
+          <div class="exp-date-chip">Aug 2022 – May 2023</div>
         </div>
-        <div class="resume-entry-date">Mar, 2021 – Apr, 2021</div>
+
+        <p class="exp-desc">
+          Niagahoster is an Indonesian web hosting company providing hosting, domain, and cloud services with strong uptime guarantees and a focus on customer support.
+        </p>
+
+        <ul class="exp-bullets">
+          <li>
+            <span class="dot">•</span>
+            <span>Resolved ~8 client cases/hour using structured prioritization and root-cause analysis (vs 5/hour target), improving reliability and reducing backlog.</span>
+          </li>
+          <li>
+            <span class="dot">•</span>
+            <span>Maintained customer satisfaction above 4.5/5 through empathetic communication and proactive follow-ups, reinforcing brand trust and repeat engagement.</span>
+          </li>
+          <li>
+            <span class="dot">•</span>
+            <span>Standardized and personalized support templates, cutting average response time by ~15% without lowering quality.</span>
+          </li>
+          <li>
+            <span class="dot">•</span>
+            <span>Troubleshot hosting and website issues beyond core scope through cross-system testing and root-cause analysis, reducing repeat complaints by ~10%.</span>
+          </li>
+        </ul>
       </div>
 
-      <ul class="resume-bullets">
-        <li>Supported daily sales operations by coordinating task assignments and monitoring progress through structured tracking methods, achieving 100% on-time completion and reducing administrative backlog for sales officers.</li>
-        <li>Conducted field analysis and data mapping by identifying 5+ new potential distribution routes, effectively expanding delivery coverage and enhancing market reach across targeted areas.</li>
-        <li>Delivered hands-on training sessions for Yakult Lady staff by following company procedures and sales protocols, increasing SOP compliance over 90% and improving the consistency of sales execution across branches.</li>
-      </ul>
-    </div>
+      <!-- Job: Yakult -->
+      <div class="exp-card">
+        <div class="exp-headline">
+          <div>
+            <p class="exp-role">Sales Assistant Intern</p>
+            <p class="exp-org">PT. Yakult Indonesia Persada</p>
+          </div>
+          <div class="exp-date-chip">Mar 2021 – Apr 2021</div>
+        </div>
 
-  </div>
+        <ul class="exp-bullets">
+          <li>
+            <span class="dot">•</span>
+            <span>Coordinated task assignments and tracked daily progress for the sales team, helping achieve 100% on-time completion and lowering admin backlog.</span>
+          </li>
+          <li>
+            <span class="dot">•</span>
+            <span>Mapped 5+ new potential distribution routes to expand delivery reach and support channel growth.</span>
+          </li>
+          <li>
+            <span class="dot">•</span>
+            <span>Helped train Yakult Lady field staff on SOP and messaging, improving consistency of execution across branches.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /exp-block (Work) -->
+
+  </div><!-- /experience-grid -->
 </section>
 
     
