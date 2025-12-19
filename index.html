@@ -505,6 +505,44 @@ nav {
         min-height: 200px;
       }
     }
+/* Contact section */
+.contact-card {
+  text-align: center;
+}
+
+.contact-intro {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #edf2f7;
+  border: 1px solid #cbd5e0;
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+
     
   </style>
 </head>
@@ -825,12 +863,39 @@ nav {
       </div>
 </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Email: <a href="mailto:m.nurrijalf@gmail.com" target="_blank" rel="noopener noreferrer">m.nurrijalf@gmail.com</a> • LinkedIn: <a href="https://www.linkedin.com/in/muhammad-nurrijal/" target="_blank" rel="noopener noreferrer">/in/nurrijal</a> • Github: <a href="https://github.com/runijal" target="_blank" rel="noopener noreferrer">@nurrijal</a></p>
-      </div>
-    </section>
+<section id="contact" class="section">
+  <h2>Contact</h2>
+
+  <div class="card contact-card">
+    <p class="contact-intro">
+      Let’s connect — I’m open to data analytics opportunities and collaborations.
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:m.nurrijalf@gmail.com"
+         class="contact-item"
+         target="_blank"
+         rel="noopener noreferrer">
+        📧 <span>m.nurrijalf@gmail.com</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/muhammad-nurrijal/"
+         class="contact-item"
+         target="_blank"
+         rel="noopener noreferrer">
+        💼 <span>/in/nurrijal</span>
+      </a>
+
+      <a href="https://github.com/runijal"
+         class="contact-item"
+         target="_blank"
+         rel="noopener noreferrer">
+        🧑‍💻 <span>@nurrijal</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
     <footer>
       <div class="social">
